@@ -173,11 +173,11 @@ display_gamingvpn_status() {
 configure_server(){
     # Check if service or config file exisiting and returnes
     echo 
-    if [ -f "$SERVICE_FILE" ]; then
-    	colorize red "GamingVPN service is running, please remove it first to configure it again." bold
-    	sleep 2
-    	return 1
-    fi
+    # if [ -f "$SERVICE_FILE" ]; then
+    # 	colorize red "GamingVPN service is running, please remove it first to configure it again." bold
+    # 	sleep 2
+    # 	return 1
+    # fi
     
     
     #Clear and title
@@ -193,6 +193,7 @@ configure_server(){
     	colorize yellow "Tunnel port 4096 selected by default."
         PORT=4096
     fi
+	SERVICE_FILE="/etc/systemd/system/gamingvpn${PORT}.service"
     
     echo
     
@@ -268,11 +269,11 @@ EOF
 configure_client(){
     # Check if service or config file exisiting and returnes
     echo 
-    if [ -f "$SERVICE_FILE" ]; then
-    	colorize red "GamingVPN service is running, please remove it first to configure it again." bold
-    	sleep 2
-    	return 1
-    fi
+    # if [ -f "$SERVICE_FILE" ]; then
+    # 	colorize red "GamingVPN service is running, please remove it first to configure it again." bold
+    # 	sleep 2
+    # 	return 1
+    # fi
    
     #Clear and title
     clear
