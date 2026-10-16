@@ -159,7 +159,7 @@ display_server_info() {
 }
 
 CONFIG_DIR='/root/gamingvpn'
-SERVICE_FILE='/etc/systemd/system/gamingvpn.service'
+SERVICE_FILE='/etc/systemd/system/gamingvpn4096.service'
 # Function to display Rathole Core installation status
 display_gamingvpn_status() {
     if [[ -f "${CONFIG_DIR}/gamingvpn" ]]; then
@@ -192,9 +192,7 @@ configure_server(){
     if [ -z "$PORT" ]; then
     	colorize yellow "Tunnel port 4096 selected by default."
         PORT=4096
-    fi
-	SERVICE_FILE="/etc/systemd/system/gamingvpn${PORT}.service"
-    
+    fi    
     echo
     
     # FEC Value
@@ -298,9 +296,7 @@ configure_client(){
     if [ -z "$PORT" ]; then
     	colorize yellow "Tunnel port 4096 selected by default."
         PORT=4096
-    fi
-	SERVICE_FILE="/etc/systemd/system/gamingvpn${PORT}.service"
-    
+    fi    
     echo
     
     # FEC Value
