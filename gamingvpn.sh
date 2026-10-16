@@ -375,7 +375,7 @@ check_service_status(){
     	return 1
     fi
     clear
-    systemctl status gamingvpn.service
+    systemctl status gamingvpn4096.service
     
     echo
     press_key
@@ -389,7 +389,7 @@ view_logs(){
     	return 1
     fi
     clear
-    journalctl -xeu gamingvpn.service
+    journalctl -xeu gamingvpn4096.service
     
     echo
     
@@ -441,7 +441,7 @@ restart_service(){
     	return 1
     fi
     
-    systemctl restart gamingvpn.service &> /dev/null
+    systemctl restart gamingvpn4096.service &> /dev/null
     colorize green "GamingVPN service restarted successfully." bold
 	sleep 2
 
