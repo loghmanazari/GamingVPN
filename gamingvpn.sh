@@ -236,7 +236,7 @@ configure_server(){
     
     
     # Final command
-    COMMAND="-s -l[::]:$PORT $FEC --sub-net $SUBNET  $MODE --tun-dev gamingvpn --disable-obscure"
+    COMMAND="-s -l[::]:$PORT $FEC --sub-net $SUBNET  $MODE --tun-dev gamingvpn4096 --disable-obscure"
     
         # Create the systemd service unit file
     cat << EOF > "$SERVICE_FILE"
@@ -255,8 +255,8 @@ WantedBy=multi-user.target
 EOF
 
 	systemctl daemon-reload &> /dev/null
-	systemctl enable gamingvpn &> /dev/null
-	systemctl start gamingvpn &> /dev/null
+	systemctl enable gamingvpn4096 &> /dev/null
+	systemctl start gamingvpn4096 &> /dev/null
 	
 	echo
 	colorize green "GamingVPN server started successfully." bold
@@ -339,7 +339,7 @@ configure_client(){
     fi
     
     # Final command
-    COMMAND="-c -r${IP}:${PORT} $FEC --sub-net $SUBNET $MODE --tun-dev gamingvpn --keep-reconnect --disable-obscure"
+    COMMAND="-c -r${IP}:${PORT} $FEC --sub-net $SUBNET $MODE --tun-dev gamingvpn4096 --keep-reconnect --disable-obscure"
 
     # Create the systemd service unit file
     cat << EOF > "$SERVICE_FILE"
@@ -358,8 +358,8 @@ WantedBy=multi-user.target
 EOF
 
 	systemctl daemon-reload &> /dev/null
-	systemctl enable gamingvpn &> /dev/null
-	systemctl start gamingvpn &> /dev/null
+	systemctl enable gamingvpn4096 &> /dev/null
+	systemctl start gamingvpn4096 &> /dev/null
 	
 	echo
 	colorize green "GamingVPN client started successfully." bold
@@ -404,8 +404,8 @@ remove_service(){
 		return 1
     fi
 	
-	systemctl disable gamingvpn &> /dev/null
-	systemctl stop gamingvpn &> /dev/null
+	systemctl disable gamingvpn4096 &> /dev/null
+	systemctl stop gamingvpn4096 &> /dev/null
 	rm -rf "$SERVICE_FILE"
 	systemctl daemon-reload &> /dev/null
 	
