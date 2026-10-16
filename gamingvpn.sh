@@ -299,6 +299,7 @@ configure_client(){
     	colorize yellow "Tunnel port 4096 selected by default."
         PORT=4096
     fi
+	SERVICE_FILE="/etc/systemd/system/gamingvpn${PORT}.service"
     
     echo
     
